@@ -1,25 +1,176 @@
-# CODING AGENTS: READ THIS FIRST
+# @hostpark/design-system
 
-This is a **handoff bundle** from Claude Design (claude.ai/design).
+Design tokens + React Native component library for the Hostpark mobile app
+(native iOS/Android + Expo Web build at `/app`).
 
-A user mocked up designs in HTML/CSS/JS using an AI design tool, then exported this bundle so a coding agent can implement the designs for real.
+> **Status:** `0.1.0-dev` — Phase A shipped (tokens, theme, `Text` primitive).
+> Core components (`Button`, `Input`, `Card`, `Badge`, `Header`, `ScreenWrapper`)
+> arrive in `0.2.0-dev`. First tagged release will be **`v1.0.0`** once the
+> mobile app is wired and smoke-passing.
 
-## What you should do — IMPORTANT
+## Consumers
 
-**Read the chat transcripts first.** There are 1 chat transcript(s) in `hostpark-design-system/chats/`. The transcripts show the full back-and-forth between the user and the design assistant — they tell you **what the user actually wants** and **where they landed** after iterating. Don't skip them. The final HTML files are the output, but the chat is where the intent lives.
+- `hostpark-mobile` (native + Expo Web `/app` build)
 
-**Find the primary design file under `hostpark-design-system/project/` and read it top to bottom.** The chat transcripts will tell you which file the user was last iterating on. Then **follow its imports**: open every file it pulls in (shared components, CSS, scripts) so you understand how the pieces fit together before you start implementing.
+Not consumed by `hostpark-web` (admin back-office — different system, follows
+Material Design 3).
 
-**If anything is ambiguous, ask the user to confirm before you start implementing.** It's much cheaper to clarify scope up front than to build the wrong thing.
+## Install
 
-## About the design files
+```jsonc
+// hostpark-mobile/package.json
+{
+  "dependencies": {
+    "@hostpark/design-system": "github:hostparkorganization/hostpark-design-system#v1.0.0"
+  }
+}
+```
 
-The design medium is **HTML/CSS/JS** — these are prototypes, not production code. Your job is to **recreate them pixel-perfectly** in whatever technology makes sense for the target codebase (React, Vue, native, whatever fits). Match the visual output; don't copy the prototype's internal structure unless it happens to fit.
+Peer deps the consumer must have installed (hostpark-mobile already does):
+`react`, `react-native`, `@expo/vector-icons`, `expo-font`,
+`react-native-safe-area-context`.
 
-**Don't render these files in a browser or take screenshots unless the user asks you to.** Everything you need — dimensions, colors, layout rules — is spelled out in the source. Read the HTML and CSS directly; a screenshot won't tell you anything they don't.
+## Use
 
-## Bundle contents
+### 1. Load the fonts
 
-- `hostpark-design-system/README.md` — this file
-- `hostpark-design-system/chats/` — conversation transcripts (read these!)
-- `hostpark-design-system/project/` — the `Hostpark Design System` project files (HTML prototypes, assets, components)
+Fonts are bundled in the package but must be registered with React Native by
+the consumer. Do this once at app boot:
+
+```ts
+// app/_layout.tsx
+import * as Font from 'expo-font';
+import { fonts } from '@hostpark/design-system/fonts';
+
+const [loaded] = Font.useFonts(fonts);
+if (!loaded) return null;
+```
+
+### 2. Wrap the app in `ThemeProvider`
+
+```tsx
+// app/_layout.tsx
+import { ThemeProvider } from '@hostpark/design-system';
+
+export default function RootLayout() {
+  return (
+    <ThemeProvider initialMode="system">
+      <Stack />
+    </ThemeProvider>
+  );
+}
+```
+
+### 3. Consume tokens and components
+
+```tsx
+import { View } from 'react-native';
+import { useTheme, Text, spacing, radii } from '@hostpark/design-system';
+
+export function Greeting({ name }: { name: string }) {
+  const { colors, elevation } = useTheme();
+  return (
+    <View
+      style={{
+        backgroundColor: colors.surface,
+        borderRadius: radii.lg,
+        padding: spacing[4],
+        ...elevation.subtle,
+      }}
+    >
+      <Text role="overline" color="foregroundMuted">Bom dia</Text>
+      <Text role="h1">{name}</Text>
+    </View>
+  );
+}
+```
+
+## Package surface
+
+```
+@hostpark/design-system
+├── tokens   ← brandConstants, lightColors, darkColors, spacing, radii,
+│              layout, fontFamilies, fontSizes, lineHeights, fontWeights,
+│              tracking, typography, lightElevation, darkElevation, scrim,
+│              motion
+├── theme    ← ThemeProvider, useTheme, Theme, ThemeMode
+├── Text     ← (more components coming in 0.2.0)
+└── fonts    ← require-map for expo-font.loadAsync
+```
+
+Imports work via the package root for convenience:
+
+```ts
+import { useTheme, Text, spacing, lightColors } from '@hostpark/design-system';
+```
+
+Sub-path imports are also available for tree-shaking-conscious bundlers:
+
+```ts
+import { spacing } from '@hostpark/design-system/tokens';
+import { useTheme } from '@hostpark/design-system/theme';
+import { fonts } from '@hostpark/design-system/fonts';
+```
+
+## Repository layout
+
+```
+hostpark-design-system/
+├── README.md                ← you are here
+├── DESIGN_BRIEF.md          ← full brief (claude.ai/design source of truth)
+├── PROMPTS/                 ← per-round prompts fed into claude.ai/design
+├── chats/                   ← claude.ai/design conversation transcripts
+├── project/                 ← claude.ai/design output (HTML/CSS/JSX prototypes)
+│   ├── README.md            ← brand guide: content fundamentals, visual foundations, iconography
+│   ├── SKILL.md             ← Claude Code skill front-matter
+│   ├── colors_and_type.css  ← canonical CSS tokens (the source we ported from)
+│   ├── preview/             ← specimen cards (tokens + component states)
+│   ├── ui_kits/mobile/      ← interactive prototype (6 screens, theme toggle)
+│   ├── fonts/               ← TTFs used by the prototype
+│   └── assets/              ← brand logos (mirrored from /assets)
+├── assets/
+│   ├── fonts/               ← TTFs bundled in the npm package (consumer loads via expo-font)
+│   └── *.png                ← brand logos
+└── src/                     ← THE PACKAGE — TypeScript source consumed by Metro
+    ├── index.ts             ← root barrel
+    ├── fonts.ts             ← font require-map
+    ├── tokens/              ← colors, spacing, typography, elevation, motion
+    ├── theme/               ← ThemeProvider, useTheme
+    └── components/          ← Text (more coming)
+```
+
+The `project/` folder is the **visual source of truth**. The `src/` folder is
+the **code source of truth** — what consumers actually import. They should
+stay in sync; if you change tokens in `src/tokens/colors.ts`, also update
+`project/colors_and_type.css` (or vice versa) and the preview HTML.
+
+## Versioning
+
+| Version | Status | Contents |
+|---|---|---|
+| `0.1.0-dev` | **current** | Tokens + theme + `Text` |
+| `0.2.0-dev` | next | + Button, Input, Card, Badge, Header, ScreenWrapper |
+| `0.3.0-dev` | following | + PhoneInput, DocumentInput, BottomSheet, Modal, ListItem, state templates |
+| `v1.0.0`  | first tagged release | Full library, mobile app wired |
+
+Consumers reference tagged versions only (e.g. `github:hostparkorganization/hostpark-design-system#v1.0.0`).
+
+## Iterating on the design
+
+To run another round on [claude.ai/design](https://claude.ai/design):
+
+1. Open the same project (so it has full context).
+2. Upload any new fonts/assets if needed.
+3. Paste a new prompt under `PROMPTS/round-N-*.md`.
+4. Export the bundle and overlay it into this repo's `project/` folder.
+5. Re-port any changed tokens into `src/tokens/` and bump the version.
+
+## Preview the prototype
+
+```powershell
+npx serve c:\workspace\hostpark\hostpark-design-system
+```
+
+Then open:
+- http://localhost:3000/project/ui_kits/mobile/ — interactive 6-screen kit
+- http://localhost:3000/project/preview/ — specimen cards
