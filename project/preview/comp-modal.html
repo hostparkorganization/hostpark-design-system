@@ -1,0 +1,41 @@
+<!DOCTYPE html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="../colors_and_type.css">
+<script type="module" src="https://cdn.jsdelivr.net/npm/ionicons@7.4.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://cdn.jsdelivr.net/npm/ionicons@7.4.0/dist/ionicons/ionicons.js"></script>
+<style>
+*{box-sizing:border-box} html,body{margin:0}
+body{font-family:var(--font-body);background:#E7EAE8;color:var(--foreground)}
+.stage{padding:22px;background:#E7EAE8;display:flex;gap:18px;justify-content:center}
+.surf{position:relative;width:300px;background:var(--background);border-radius:var(--radius-xl);overflow:hidden;border:1px solid rgba(0,0,0,.06)}
+.scrim{position:absolute;inset:0;background:rgba(8,16,11,.34)}
+.h4{font-family:var(--font-display);font-weight:700;font-size:17px;margin:0;letter-spacing:-.01em;color:var(--foreground)}
+.muted{color:var(--foreground-muted);font-size:14px;line-height:1.5}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:46px;padding:0 18px;border:none;border-radius:var(--radius-md);font-family:var(--font-display);font-weight:600;font-size:15px;cursor:pointer;white-space:nowrap}
+.btn-primary{background:var(--primary);color:var(--primary-foreground)}
+.btn-secondary{background:var(--surface);color:var(--foreground);border:1px solid var(--border-strong)}
+.btn-destructive{background:var(--destructive);color:var(--destructive-foreground)}
+.btn-block{width:100%}
+.tag{font-family:var(--font-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.opt{display:flex;align-items:center;gap:12px;padding:13px 18px;border-bottom:1px solid var(--border);font-size:15px;color:var(--foreground)}
+.opt ion-icon{font-size:20px;color:var(--accent)}
+</style></head><body><div class="stage"><div><div class="tag" style="margin-bottom:8px">Light</div><div class="surf" data-theme="light" style="height:300px;display:flex;align-items:center;justify-content:center">
+  <div class="scrim"></div>
+  <div style="position:relative;width:248px;background:var(--surface);border-radius:var(--radius-lg);box-shadow:var(--elev-floating);padding:22px;display:flex;flex-direction:column;gap:10px">
+    <span class="h4">Remover esta vaga?</span>
+    <span class="muted">O anúncio sairá do mural e reservas futuras serão canceladas. Esta ação não pode ser desfeita.</span>
+    <div style="display:flex;gap:10px;margin-top:8px">
+      <button class="btn btn-secondary" style="flex:1;height:42px;font-size:14px">Cancelar</button>
+      <button class="btn btn-destructive" style="flex:1;height:42px;font-size:14px">Remover</button>
+    </div>
+  </div>
+</div></div><div><div class="tag" style="margin-bottom:8px">Dark</div><div class="surf" data-theme="dark" style="height:300px;display:flex;align-items:center;justify-content:center">
+  <div class="scrim"></div>
+  <div style="position:relative;width:248px;background:var(--surface);border-radius:var(--radius-lg);box-shadow:var(--elev-floating);padding:22px;display:flex;flex-direction:column;gap:10px">
+    <span class="h4">Remover esta vaga?</span>
+    <span class="muted">O anúncio sairá do mural e reservas futuras serão canceladas. Esta ação não pode ser desfeita.</span>
+    <div style="display:flex;gap:10px;margin-top:8px">
+      <button class="btn btn-secondary" style="flex:1;height:42px;font-size:14px">Cancelar</button>
+      <button class="btn btn-destructive" style="flex:1;height:42px;font-size:14px">Remover</button>
+    </div>
+  </div>
+</div></div></div></body></html>

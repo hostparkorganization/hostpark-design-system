@@ -103,10 +103,11 @@ accent rather than a flood.
   for dark-green text* (`#06371D`, ~9:1) — never a text color on white, and
   never carrying white text. For green text on light surfaces use the deeper
   `--accent` (`#1F8A5B`).
-- **Type.** Display = **Hanken Grotesk** (warm humanist grotesque, 600–800) for
-  headings and hero. Body = **IBM Plex Sans** (institutional, legible, full
-  Latin-Extended for diacritics). Codes/IDs in **IBM Plex Mono**. Headings sit
-  tight (`-0.01/-0.02em`); body is comfortable (1.5 line-height).
+- **Type.** Display = **Manrope** (geometric humanist, 600–700) for headings
+  and hero. Body = **Inter** (clean, legible, full Latin-Extended for
+  diacritics, 400–700). Codes/IDs use the **system monospace** fallback
+  (no 3rd font family shipped). Headings sit tight
+  (`-0.01/-0.02em`); body is comfortable (1.5 line-height).
 - **Spacing.** 4px base scale; screen gutters are `--space-5` (20px), card
   padding `--space-4`–`--space-5`. Generous vertical rhythm — calm needs air.
 - **Corner radii.** Soft but not bubbly. Inputs/buttons `--radius-md` (10px),
@@ -179,7 +180,7 @@ accent rather than a flood.
 | Token group | Where defined | Notes |
 |---|---|---|
 | Color (light + dark) | `colors_and_type.css` | semantic roles, both themes, AA+ |
-| Type scale | `colors_and_type.css` | 12 → 48; Hanken Grotesk + IBM Plex Sans/Mono |
+| Type scale | `colors_and_type.css` | 12 → 48; Manrope + Inter + system mono |
 | Spacing | `colors_and_type.css` | 4px base, `--space-*` |
 | Radii | `colors_and_type.css` | sm 6 / md 10 / lg 14 / xl 20 / full |
 | Elevation | `colors_and_type.css` | `--elev-subtle / -raised / -floating` |
@@ -198,16 +199,19 @@ accent rather than a flood.
   `hostpark-icon.png`).
 - `preview/` — small specimen cards that populate the Design System tab
   (colors, type, spacing, radii, elevation, button states).
-- `ui_kits/mobile/` — the mobile UI kit: 3 anchor screens (Sign-in,
-  Decision-home, Vaga detail) + reusable JSX components. Open
-  `ui_kits/mobile/index.html` for the interactive walkthrough.
+- `ui_kits/mobile/` — the mobile UI kit: **6 screens** (Sign-in, Decision-home,
+  Vaga detail, Verify-residence, Active-condo home, Members list) + reusable JSX
+  components. Open `ui_kits/mobile/index.html` for the interactive walkthrough.
+- `preview/comp-*.html` — the component sheet (inputs, phone/document inputs,
+  card variants, badges, bottom sheet, modal, list item, empty/loading/error
+  states).
 
 ---
 
-## Font substitution note
+## Font note
 
-Hostpark had no licensed brand typeface specified, so this system pairs two
-open Google Fonts chosen for a calm, trustworthy residential feel:
-**Hanken Grotesk** (display) + **IBM Plex Sans** / **IBM Plex Mono** (body/mono).
-If Hostpark adopts (or already owns) a brand typeface, send the files and we'll
-swap them in — the type tokens are centralized in `colors_and_type.css`.
+Hostpark's brand typefaces are **Manrope** (display) + **Inter** (body), both
+self-hosted from `fonts/` (TTF, weights Manrope 400/500/600/700/800, Inter 400/500/600/700).
+Mono codes/IDs (invite codes, vaga numbers, plates) use the **system monospace**
+fallback — no third font family is shipped. All type tokens live in
+`colors_and_type.css`; swap weights or families there and the whole system follows.

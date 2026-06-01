@@ -1,0 +1,50 @@
+<!DOCTYPE html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="../colors_and_type.css">
+<script type="module" src="https://cdn.jsdelivr.net/npm/ionicons@7.4.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://cdn.jsdelivr.net/npm/ionicons@7.4.0/dist/ionicons/ionicons.js"></script>
+<style>
+*{box-sizing:border-box} html,body{margin:0}
+body{font-family:var(--font-body);background:#E7EAE8;color:var(--foreground)}
+.split{display:flex}
+.panel{flex:1;padding:22px;display:flex;flex-direction:column;gap:14px;background:var(--background)}
+.panel+.panel{border-left:1px solid rgba(0,0,0,.08)}
+.tag{font-family:var(--font-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.single{padding:24px;display:flex;gap:16px;background:var(--background);align-items:flex-start}
+.row{display:flex;gap:9px;flex-wrap:wrap;align-items:center}
+.chip{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:5px 10px;border-radius:var(--radius-full)}
+.chip ion-icon{font-size:13px}
+.c-success{background:var(--success-subtle);color:var(--success)}
+.c-warning{background:var(--warning-subtle);color:var(--warning)}
+.c-destructive{background:var(--destructive-subtle);color:var(--destructive)}
+.c-info{background:var(--info-subtle);color:var(--info)}
+.c-muted{background:var(--surface-2);color:var(--foreground-muted)}
+.c-default{background:var(--primary-subtle);color:var(--accent)}
+.verified{display:inline-flex;align-items:center;gap:5px;color:var(--accent);font-size:13px;font-weight:600}
+.verified ion-icon{font-size:16px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:44px;padding:0 18px;border:none;border-radius:var(--radius-md);font-family:var(--font-display);font-weight:600;font-size:15px;cursor:pointer;white-space:nowrap}
+.btn-primary{background:var(--primary);color:var(--primary-foreground)}
+.btn-secondary{background:var(--surface);color:var(--foreground);border:1px solid var(--border-strong)}
+.btn-destructive{background:var(--destructive);color:var(--destructive-foreground)}
+.btn-block{width:100%}
+.h4{font-family:var(--font-display);font-weight:600;font-size:18px;margin:0;letter-spacing:-.01em}
+.muted{color:var(--foreground-muted);font-size:14px;line-height:1.5}
+</style></head><body><div class="split">
+  <div class="panel" data-theme="light"><span class="tag">Light</span><div class="row">
+  <span class="chip c-default">Default</span>
+  <span class="chip c-success"><ion-icon name="checkmark-circle"></ion-icon>Disponível</span>
+  <span class="chip c-warning">Pausada</span>
+  <span class="chip c-destructive">Cancelada</span>
+  <span class="chip c-info">Reservada</span>
+  <span class="chip c-muted">Removido</span>
+</div>
+<div class="row" style="margin-top:4px"><span class="verified"><ion-icon name="checkmark-circle"></ion-icon>Morador verificado</span></div></div>
+  <div class="panel" data-theme="dark"><span class="tag">Dark</span><div class="row">
+  <span class="chip c-default">Default</span>
+  <span class="chip c-success"><ion-icon name="checkmark-circle"></ion-icon>Disponível</span>
+  <span class="chip c-warning">Pausada</span>
+  <span class="chip c-destructive">Cancelada</span>
+  <span class="chip c-info">Reservada</span>
+  <span class="chip c-muted">Removido</span>
+</div>
+<div class="row" style="margin-top:4px"><span class="verified"><ion-icon name="checkmark-circle"></ion-icon>Morador verificado</span></div></div>
+</div></body></html>

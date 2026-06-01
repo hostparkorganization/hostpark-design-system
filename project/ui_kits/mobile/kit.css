@@ -11,7 +11,7 @@
   font-family: var(--font-body);
   display: flex; flex-direction: column; align-items: center;
 }
-.studio[data-page-dark="true"] { background: #05080620; }
+.studio[data-page-dark="true"] { background: #141916; }
 .toolbar {
   position: sticky; top: 0; z-index: 50;
   width: 100%;
@@ -38,7 +38,7 @@
 /* ---- Phone frame ---- */
 .phone-wrap { padding: 28px 16px 48px; }
 .phone {
-  width: 390px; height: box; position: relative;
+  width: 390px; position: relative;
   background: var(--background);
   border-radius: 44px;
   border: 10px solid #0c0f0e;
@@ -206,7 +206,7 @@
 .hero-dots i { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,.55); }
 .hero-dots i.on { background: #fff; width: 18px; border-radius: var(--radius-full); }
 
-.detail-body { padding: 20px 20px 120px; display: flex; flex-direction: column; gap: 18px; }
+.detail-body { padding: 20px 20px 28px; display: flex; flex-direction: column; gap: 18px; }
 .price-big { font-family: var(--font-display); font-weight: 800; font-size: 30px; color: var(--foreground); letter-spacing: -.02em; }
 .price-big small { font-family: var(--font-body); font-weight: 500; font-size: 15px; color: var(--foreground-muted); }
 .meta-row { display: flex; align-items: center; gap: 8px; color: var(--foreground-muted); font-size: 14.5px; }
@@ -235,9 +235,8 @@
 .cal .day.off .dd { text-decoration: line-through; color: var(--muted); }
 
 .sticky-cta {
-  position: absolute; left: 0; right: 0; bottom: 0; z-index: 5;
+  flex: none; z-index: 5;
   display: flex; align-items: center; gap: 14px; padding: 14px 20px;
-  padding-bottom: 22px;
   background: color-mix(in srgb, var(--surface) 86%, transparent);
   backdrop-filter: blur(14px); border-top: 1px solid var(--border);
 }
@@ -247,7 +246,7 @@
 .sticky-cta .btn { flex: 1; }
 
 /* ---- Sign-in ---- */
-.signin { padding: 12px 24px 24px; display: flex; flex-direction: column; height: 100%; }
+.signin { flex: 1; min-height: 0; padding: 12px 24px 24px; display: flex; flex-direction: column; }
 .signin .brand { display: flex; justify-content: center; padding: 18px 0 26px; }
 .signin .brand img { height: 34px; }
 .signin h2 { margin: 0 0 6px; }
@@ -262,3 +261,154 @@
 .hero h1 { margin: 0 0 8px; }
 .reassure { display: flex; align-items: center; gap: 8px; color: var(--foreground-muted); font-size: 13px; justify-content: center; padding-top: 4px; }
 .reassure ion-icon { font-size: 16px; color: var(--success); }
+
+/* =========================================================================
+   ROUND 2 — extended chip variants
+   ========================================================================= */
+.chip-warning { background: var(--warning-subtle); color: var(--warning); }
+.chip-destructive { background: var(--destructive-subtle); color: var(--destructive); }
+.chip-info { background: var(--info-subtle); color: var(--info); }
+.chip-muted { background: var(--surface-2); color: var(--foreground-muted); }
+.chip-primary { background: var(--primary-subtle); color: var(--accent); }
+
+/* =========================================================================
+   Top app bar — title variant (back · title · action)
+   ========================================================================= */
+.topbar.titled { justify-content: space-between; }
+.topbar .tb-title { font-family: var(--font-display); font-weight: 700; font-size: 17px; color: var(--foreground); }
+.topbar .tb-side { display: flex; align-items: center; gap: 8px; min-width: 40px; }
+.topbar .tb-side.right { justify-content: flex-end; }
+.iconbtn.ghost { background: transparent; border: none; }
+.step-ind { font-family: var(--font-body); font-size: 13px; font-weight: 600; color: var(--foreground-muted); }
+
+/* =========================================================================
+   Screen 4 — verify residence (upload)
+   ========================================================================= */
+.pad { padding: 8px 20px 24px; display: flex; flex-direction: column; gap: 18px; }
+.dropzone {
+  border: 1.5px dashed var(--border-strong); background: var(--surface-2);
+  border-radius: var(--radius-lg); padding: 30px 20px;
+  display: flex; flex-direction: column; align-items: center; gap: 10px; cursor: pointer;
+  text-align: center; transition: border-color .15s ease, background .15s ease;
+}
+.dropzone:hover { border-color: var(--accent); }
+.dropzone .dz-icon { font-size: 34px; color: var(--accent); }
+.dropzone b { font-family: var(--font-display); font-weight: 600; font-size: 15px; color: var(--foreground); }
+.dropzone small { font-size: 13px; color: var(--foreground-muted); }
+.file-row {
+  display: flex; align-items: center; gap: 12px;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius-md); padding: 12px 14px;
+}
+.file-row .fr-icon {
+  flex: none; width: 40px; height: 40px; border-radius: var(--radius-sm);
+  display: flex; align-items: center; justify-content: center; font-size: 22px;
+  background: var(--destructive-subtle); color: var(--destructive);
+}
+.file-row .fr-text { flex: 1; min-width: 0; }
+.file-row .fr-text b { display: block; font-family: var(--font-body); font-weight: 600; font-size: 14px; color: var(--foreground); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.file-row .fr-text small { font-size: 12px; color: var(--muted); }
+.file-row .fr-remove { background: none; border: none; cursor: pointer; color: var(--destructive); font-size: 13px; font-weight: 600; }
+.trust-row {
+  display: flex; gap: 10px; align-items: flex-start;
+  color: var(--foreground-muted); font-size: 13px; line-height: 1.5;
+}
+.trust-row ion-icon { flex: none; font-size: 18px; color: var(--success); margin-top: 1px; }
+
+/* =========================================================================
+   Screen 5 — active-condo home
+   ========================================================================= */
+.home-head { padding: 4px 4px 2px; }
+.home-head h1 { margin: 4px 0 4px; }
+.home-head .sub { font-size: 14px; color: var(--foreground-muted); }
+.sec-head { display: flex; align-items: center; justify-content: space-between; margin: 4px 4px 0; }
+.sec-head h4 { margin: 0; }
+.sec-head a { font-size: 13px; font-weight: 600; color: var(--accent); text-decoration: none; }
+
+.next-card {
+  background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg);
+  box-shadow: var(--elev-subtle); padding: 16px; display: flex; flex-direction: column; gap: 12px;
+}
+.next-top { display: flex; align-items: center; gap: 12px; }
+.cal-tile {
+  flex: none; width: 52px; height: 56px; border-radius: var(--radius-md);
+  background: var(--primary-subtle); display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 1px;
+}
+.cal-tile .ct-d { font-family: var(--font-display); font-weight: 800; font-size: 20px; color: var(--accent); line-height: 1; }
+.cal-tile .ct-m { font-size: 10px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); }
+.next-card .nc-text { flex: 1; min-width: 0; }
+.next-card .nc-text b { display: block; font-family: var(--font-display); font-weight: 600; font-size: 15.5px; color: var(--foreground); }
+.next-card .nc-text small { font-size: 13px; color: var(--foreground-muted); }
+.next-bot { display: flex; align-items: center; justify-content: space-between; padding-top: 12px; border-top: 1px solid var(--border); }
+.next-bot .np { font-family: var(--font-display); font-weight: 700; font-size: 16px; color: var(--foreground); }
+.next-bot .np small { font-family: var(--font-body); font-weight: 500; font-size: 12px; color: var(--foreground-muted); }
+.text-link { background: none; border: none; cursor: pointer; color: var(--accent); font-family: var(--font-body); font-weight: 600; font-size: 13.5px; display: inline-flex; align-items: center; gap: 3px; }
+.text-link ion-icon { font-size: 15px; }
+
+.hscroll { display: flex; gap: 12px; overflow-x: auto; padding: 2px 20px 4px; margin: 0 -20px; scrollbar-width: none; }
+.hscroll::-webkit-scrollbar { display: none; }
+.mini-vaga {
+  flex: none; width: 160px; background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--elev-subtle); cursor: pointer;
+}
+.mini-vaga .mv-photo {
+  height: 88px; background: radial-gradient(120% 90% at 30% 20%, color-mix(in srgb,var(--accent) 12%, var(--surface-2)), var(--surface-2));
+  display: flex; align-items: center; justify-content: center; color: var(--muted); font-size: 26px;
+}
+.mini-vaga .mv-body { padding: 10px 12px 12px; display: flex; flex-direction: column; gap: 6px; }
+.mini-vaga .mv-num { font-family: var(--font-display); font-weight: 700; font-size: 14px; color: var(--foreground); }
+.mini-vaga .mv-price { font-family: var(--font-display); font-weight: 600; font-size: 13px; color: var(--foreground-muted); }
+
+.quick-row { display: flex; gap: 10px; }
+.quick-chip {
+  flex: 1; display: flex; flex-direction: column; align-items: center; gap: 7px;
+  background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg);
+  padding: 14px 8px; cursor: pointer; box-shadow: var(--elev-subtle);
+  transition: transform .12s ease; text-align: center;
+}
+.quick-chip:active { transform: scale(.97); }
+.quick-chip .qc-icon { width: 40px; height: 40px; border-radius: var(--radius-full); background: var(--primary-subtle); color: var(--accent); display: flex; align-items: center; justify-content: center; font-size: 21px; }
+.quick-chip span { font-family: var(--font-body); font-weight: 600; font-size: 12px; color: var(--foreground); line-height: 1.25; }
+
+/* =========================================================================
+   Screen 6 — members list
+   ========================================================================= */
+.statusfilter { display: flex; gap: 8px; padding: 4px 20px 12px; }
+.statusfilter button {
+  flex: none; border: 1px solid var(--border); background: var(--surface);
+  border-radius: var(--radius-full); padding: 7px 14px; cursor: pointer;
+  font-family: var(--font-body); font-weight: 600; font-size: 13px; color: var(--foreground-muted);
+  transition: all .15s ease; white-space: nowrap;
+}
+.statusfilter button.on { background: var(--primary-subtle); border-color: color-mix(in srgb,var(--primary) 40%, var(--border)); color: var(--accent); }
+.filterbar { display: flex; gap: 10px; padding: 0 20px 8px; }
+.filter-chip {
+  display: inline-flex; align-items: center; gap: 5px; border: 1px solid var(--border);
+  background: var(--surface); border-radius: var(--radius-md); padding: 7px 12px;
+  cursor: pointer; font-family: var(--font-body); font-weight: 600; font-size: 13px; color: var(--foreground); white-space: nowrap;
+}
+.filter-chip ion-icon { font-size: 15px; color: var(--muted); }
+
+.member-list { display: flex; flex-direction: column; }
+.member {
+  display: flex; align-items: center; gap: 12px; padding: 12px 20px;
+  border-bottom: 1px solid var(--border); cursor: pointer; background: var(--surface);
+  transition: background .12s ease;
+}
+.member:active, .member.selected { background: var(--surface-2); }
+.member .m-text { flex: 1; min-width: 0; }
+.member .m-name { display: flex; align-items: center; gap: 7px; }
+.member .m-name b { font-family: var(--font-display); font-weight: 600; font-size: 15px; color: var(--foreground); }
+.member .m-sub { font-size: 13px; color: var(--foreground-muted); }
+.role-badge {
+  flex: none; font-family: var(--font-body); font-size: 11px; font-weight: 700;
+  letter-spacing: .04em; padding: 4px 9px; border-radius: var(--radius-full);
+  background: var(--surface-2); color: var(--foreground-muted); text-transform: uppercase;
+}
+.role-badge.sindico { background: var(--info-subtle); color: var(--info); }
+.role-badge.porteiro { background: var(--warning-subtle); color: var(--warning); }
+.ov-btn { flex: none; background: none; border: none; cursor: pointer; color: var(--muted); font-size: 20px; display: flex; padding: 4px; }
+.avatar.sm { width: 42px; height: 42px; font-size: 15px; }
+.verified.sm { font-size: 0; }
+.verified.sm ion-icon { font-size: 15px; }

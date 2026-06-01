@@ -1,0 +1,61 @@
+<!DOCTYPE html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="../colors_and_type.css">
+<script type="module" src="https://cdn.jsdelivr.net/npm/ionicons@7.4.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://cdn.jsdelivr.net/npm/ionicons@7.4.0/dist/ionicons/ionicons.js"></script>
+<style>
+*{box-sizing:border-box} html,body{margin:0}
+body{font-family:var(--font-body);background:#E7EAE8;color:var(--foreground)}
+.split{display:flex}
+.panel{flex:1;padding:22px;display:flex;flex-direction:column;gap:14px;background:var(--background)}
+.panel+.panel{border-left:1px solid rgba(0,0,0,.08)}
+.tag{font-family:var(--font-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.single{padding:22px;display:flex;flex-direction:column;gap:14px;background:var(--background)}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+/* fields */
+.field{display:flex;flex-direction:column;gap:6px}
+.field label{font-size:12px;font-weight:600;color:var(--foreground-muted)}
+.iw{position:relative;display:flex;align-items:center}
+.iw ion-icon{position:absolute;font-size:19px;color:var(--muted)}
+.iw .pre{left:13px} .iw .suf{right:13px}
+.inp{width:100%;height:46px;background:var(--surface);color:var(--foreground);border:1px solid var(--border);border-radius:var(--radius-md);padding:0 14px;font-family:var(--font-body);font-size:15px;outline:none}
+.inp.haspre{padding-left:40px} .inp.hassuf{padding-right:40px}
+.inp::placeholder{color:var(--muted)}
+.inp.focused{border-color:var(--ring);box-shadow:0 0 0 3px color-mix(in srgb,var(--ring) 18%,transparent)}
+.inp.err{border-color:var(--destructive);box-shadow:0 0 0 3px color-mix(in srgb,var(--destructive) 16%,transparent)}
+.inp[disabled]{background:var(--surface-2);color:var(--muted);cursor:not-allowed}
+.err-msg{font-size:12px;color:var(--destructive);display:flex;align-items:center;gap:5px}
+.err-msg ion-icon{font-size:14px}
+/* chips */
+.chip{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:5px 10px;border-radius:var(--radius-full)}
+.chip ion-icon{font-size:13px}
+.c-success{background:var(--success-subtle);color:var(--success)}
+.c-warning{background:var(--warning-subtle);color:var(--warning)}
+.c-destructive{background:var(--destructive-subtle);color:var(--destructive)}
+.c-info{background:var(--info-subtle);color:var(--info)}
+.c-muted{background:var(--surface-2);color:var(--foreground-muted)}
+.c-default{background:var(--primary-subtle);color:var(--accent)}
+.verified{display:inline-flex;align-items:center;gap:5px;color:var(--accent);font-size:13px;font-weight:600}
+.verified ion-icon{font-size:16px}
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:44px;padding:0 18px;border:none;border-radius:var(--radius-md);font-family:var(--font-display);font-weight:600;font-size:15px;cursor:pointer;white-space:nowrap}
+.btn-primary{background:var(--primary);color:var(--primary-foreground)}
+.btn-secondary{background:var(--surface);color:var(--foreground);border:1px solid var(--border-strong)}
+.btn-destructive{background:var(--destructive);color:var(--destructive-foreground)}
+.btn-block{width:100%}
+.tag2{font-size:11px;color:var(--muted);text-align:center}
+</style></head><body><div class="split">
+  <div class="panel" data-theme="light"><span class="tag">Light</span>
+<div class="field"><label>E-mail</label><div class="iw"><input class="inp" placeholder="voce@email.com"></div></div>
+<div class="field"><label>Buscar</label><div class="iw"><ion-icon class="pre" name="search-outline"></ion-icon><input class="inp haspre" placeholder="Buscar vaga"></div></div>
+<div class="field"><label>Senha</label><div class="iw"><input class="inp hassuf" type="text" value="••••••••"><ion-icon class="suf" name="eye-outline"></ion-icon></div></div>
+<div class="field"><label>Bloco</label><div class="iw"><input class="inp focused" value="Bloco A"></div></div>
+<div class="field"><label>CPF</label><div class="iw"><input class="inp err" value="000.000"></div><span class="err-msg"><ion-icon name="alert-circle"></ion-icon>CPF inválido</span></div>
+<div class="field"><label>Apartamento</label><div class="iw"><input class="inp" disabled value="304"></div></div></div>
+  <div class="panel" data-theme="dark"><span class="tag">Dark</span>
+<div class="field"><label>E-mail</label><div class="iw"><input class="inp" placeholder="voce@email.com"></div></div>
+<div class="field"><label>Buscar</label><div class="iw"><ion-icon class="pre" name="search-outline"></ion-icon><input class="inp haspre" placeholder="Buscar vaga"></div></div>
+<div class="field"><label>Senha</label><div class="iw"><input class="inp hassuf" type="text" value="••••••••"><ion-icon class="suf" name="eye-outline"></ion-icon></div></div>
+<div class="field"><label>Bloco</label><div class="iw"><input class="inp focused" value="Bloco A"></div></div>
+<div class="field"><label>CPF</label><div class="iw"><input class="inp err" value="000.000"></div><span class="err-msg"><ion-icon name="alert-circle"></ion-icon>CPF inválido</span></div>
+<div class="field"><label>Apartamento</label><div class="iw"><input class="inp" disabled value="304"></div></div></div>
+</div></body></html>

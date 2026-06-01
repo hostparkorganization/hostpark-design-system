@@ -5,7 +5,7 @@ const LOGO = "../../assets/hostpark-logo.png";
 const LOGO_WHITE = "../../assets/hostpark-logo-white.png";
 
 function App() {
-  const [screen, setScreen] = useStateA("signin"); // signin | home | detail
+  const [screen, setScreen] = useStateA("signin"); // signin | home | detail | verify | active | members
   const [theme, setTheme] = useStateA("light");
   const logo = theme === "dark" ? LOGO_WHITE : LOGO;
 
@@ -13,6 +13,9 @@ function App() {
     { id: "signin", label: "Entrar" },
     { id: "home", label: "Início" },
     { id: "detail", label: "Vaga" },
+    { id: "verify", label: "Verificar" },
+    { id: "active", label: "Painel" },
+    { id: "members", label: "Membros" },
   ];
 
   return (
@@ -38,6 +41,9 @@ function App() {
             {screen === "signin" && <SignIn logoSrc={logo} onSignIn={() => setScreen("home")} />}
             {screen === "home" && <DecisionHome logoSrc={logo} onOpenVaga={() => setScreen("detail")} />}
             {screen === "detail" && <VagaDetail onBack={() => setScreen("home")} />}
+            {screen === "verify" && <VerifyResidence onBack={() => setScreen("home")} onSubmit={() => setScreen("active")} />}
+            {screen === "active" && <ActiveHome logoSrc={logo} onOpenVaga={() => setScreen("detail")} />}
+            {screen === "members" && <MembersList onBack={() => setScreen("active")} />}
             <HomeIndicator />
           </div>
         </div>

@@ -70,11 +70,11 @@ function TopBar({ logoSrc, onBell }) {
 }
 
 /* -- Bottom tab bar. Non-home tabs are locked/subdued until a condo is joined -- */
-function BottomTabs({ active = "home" }) {
+function BottomTabs({ active = "home", allUnlocked = false }) {
   const tabs = [
     { id: "home", label: "Início", icon: "home", locked: false },
-    { id: "mural", label: "Mural", icon: "chatbubbles-outline", locked: true },
-    { id: "reservas", label: "Reservas", icon: "calendar-outline", locked: true },
+    { id: "mural", label: "Mural", icon: "chatbubbles-outline", locked: !allUnlocked },
+    { id: "reservas", label: "Reservas", icon: "calendar-outline", locked: !allUnlocked },
     { id: "perfil", label: "Perfil", icon: "person-outline", locked: false },
   ];
   return (

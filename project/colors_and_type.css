@@ -5,18 +5,38 @@
    residential-services. Phone-first. Light + dark defined side-by-side.
    All foreground/background pairs target WCAG AA (AAA for body text).
 
-   Fonts loaded from Google Fonts (see fonts note in README). Load this in any
-   document, then opt into dark mode with <html data-theme="dark"> or
-   [data-theme="dark"] on a container.
+   Brand fonts self-hosted from fonts/: Manrope (display) + Inter (body).
+   Mono codes use the system monospace fallback (no 3rd font family shipped).
+   Load this in any document, then opt into dark mode with <html data-theme="dark">
+   or [data-theme="dark"] on a container.
    ============================================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+/* --- Self-hosted brand fonts --------------------------------------------- */
+@font-face { font-family: "Manrope"; font-weight: 400; font-style: normal; font-display: swap;
+  src: url("fonts/Manrope-Regular.ttf") format("truetype"); }
+@font-face { font-family: "Manrope"; font-weight: 500; font-style: normal; font-display: swap;
+  src: url("fonts/Manrope-Medium.ttf") format("truetype"); }
+@font-face { font-family: "Manrope"; font-weight: 600; font-style: normal; font-display: swap;
+  src: url("fonts/Manrope-SemiBold.ttf") format("truetype"); }
+@font-face { font-family: "Manrope"; font-weight: 700; font-style: normal; font-display: swap;
+  src: url("fonts/Manrope-Bold.ttf") format("truetype"); }
+@font-face { font-family: "Manrope"; font-weight: 800; font-style: normal; font-display: swap;
+  src: url("fonts/Manrope-ExtraBold.ttf") format("truetype"); }
+@font-face { font-family: "Inter"; font-weight: 400; font-style: normal; font-display: swap;
+  src: url("fonts/Inter-Regular.ttf") format("truetype"); }
+@font-face { font-family: "Inter"; font-weight: 500; font-style: normal; font-display: swap;
+  src: url("fonts/Inter-Medium.ttf") format("truetype"); }
+@font-face { font-family: "Inter"; font-weight: 600; font-style: normal; font-display: swap;
+  src: url("fonts/Inter-SemiBold.ttf") format("truetype"); }
+@font-face { font-family: "Inter"; font-weight: 700; font-style: normal; font-display: swap;
+  src: url("fonts/Inter-Bold.ttf") format("truetype"); }
 
 :root {
   /* --- Font families -------------------------------------------------- */
-  --font-display: "Hanken Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-body:    "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-mono:    "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --font-display: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-body:    "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono:    ui-monospace, "SF Mono", Menlo, "Cascadia Code", monospace;
 
   /* --- Type scale (px → rem with line-height & tracking) -------------- */
   --text-12: 0.75rem;   --lh-12: 1rem;       /* caption / overline      */
@@ -34,7 +54,7 @@
   --w-medium: 500;
   --w-semibold: 600;
   --w-bold: 700;
-  --w-extrabold: 800;
+  --w-extrabold: 800;  /* Manrope ExtraBold */
 
   /* --- Tracking ------------------------------------------------------- */
   --track-tight: -0.02em;   /* large display                            */
