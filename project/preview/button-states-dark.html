@@ -1,0 +1,28 @@
+<!DOCTYPE html><html lang="pt-BR" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  *{box-sizing:border-box} html,body{margin:0}
+  body{font-family:var(--font-body);background:var(--background);padding:22px}
+  .wrap{display:flex;gap:18px;flex-wrap:wrap;align-items:flex-start}
+  .col{display:flex;flex-direction:column;gap:9px;align-items:center}
+  .meta{font-family:var(--font-mono);font-size:11px;color:var(--muted)}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    height:48px;padding:0 22px;border:none;border-radius:var(--radius-md);
+    font-family:var(--font-display);font-weight:600;font-size:16px;cursor:pointer;
+    background:var(--primary);color:var(--primary-foreground);
+    transition:background .15s cubic-bezier(.2,0,0,1), transform .12s ease;white-space:nowrap}
+  .btn.hover{background:var(--primary-hover);transform:scale(.98)}
+  .btn.focus{outline:2px solid var(--ring);outline-offset:2px}
+  .btn.disabled{background:var(--surface-2);color:var(--muted);cursor:not-allowed;border:1px solid var(--border)}
+  .btn.loading{background:var(--primary-hover)}
+  .spin{width:16px;height:16px;border-radius:50%;border:2px solid color-mix(in srgb,var(--primary-foreground) 35%,transparent);border-top-color:var(--primary-foreground);animation:s .7s linear infinite}
+  @keyframes s{to{transform:rotate(360deg)}}
+</style></head><body>
+<div class="wrap">
+  <div class="col"><button class="btn">Reservar vaga</button><span class="meta">default</span></div>
+  <div class="col"><button class="btn hover">Reservar vaga</button><span class="meta">pressed</span></div>
+  <div class="col"><button class="btn focus">Reservar vaga</button><span class="meta">focus</span></div>
+  <div class="col"><button class="btn disabled">Reservar vaga</button><span class="meta">disabled</span></div>
+  <div class="col"><button class="btn loading"><span class="spin"></span>Reservando…</button><span class="meta">loading</span></div>
+</div>
+</body></html>

@@ -1,0 +1,227 @@
+/* ============================================================================
+   HOSTPARK DESIGN SYSTEM — Tokens: Color + Type + Spacing + Radii + Elevation
+   ----------------------------------------------------------------------------
+   Brand DNA: primary green #55DE85. Personality: trustworthy, calm,
+   residential-services. Phone-first. Light + dark defined side-by-side.
+   All foreground/background pairs target WCAG AA (AAA for body text).
+
+   Fonts loaded from Google Fonts (see fonts note in README). Load this in any
+   document, then opt into dark mode with <html data-theme="dark"> or
+   [data-theme="dark"] on a container.
+   ============================================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+:root {
+  /* --- Font families -------------------------------------------------- */
+  --font-display: "Hanken Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-body:    "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono:    "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  /* --- Type scale (px → rem with line-height & tracking) -------------- */
+  --text-12: 0.75rem;   --lh-12: 1rem;       /* caption / overline      */
+  --text-14: 0.875rem;  --lh-14: 1.25rem;    /* small / labels          */
+  --text-16: 1rem;      --lh-16: 1.5rem;     /* body (base)             */
+  --text-18: 1.125rem;  --lh-18: 1.625rem;   /* body large / lead       */
+  --text-20: 1.25rem;   --lh-20: 1.75rem;    /* h4 / card title         */
+  --text-24: 1.5rem;    --lh-24: 2rem;       /* h3                      */
+  --text-30: 1.875rem;  --lh-30: 2.375rem;   /* h2                      */
+  --text-36: 2.25rem;   --lh-36: 2.625rem;   /* h1 / hero (display)     */
+  --text-48: 3rem;      --lh-48: 3.25rem;    /* display XL              */
+
+  /* --- Weight ladder -------------------------------------------------- */
+  --w-regular: 400;
+  --w-medium: 500;
+  --w-semibold: 600;
+  --w-bold: 700;
+  --w-extrabold: 800;
+
+  /* --- Tracking ------------------------------------------------------- */
+  --track-tight: -0.02em;   /* large display                            */
+  --track-snug: -0.01em;    /* headings                                 */
+  --track-normal: 0;        /* body                                     */
+  --track-wide: 0.06em;     /* overline / all-caps labels               */
+
+  /* --- Spacing scale (4px base) -------------------------------------- */
+  --space-0: 0;
+  --space-0_5: 2px;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+
+  /* --- Radii ---------------------------------------------------------- */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+  --radius-full: 9999px;
+
+  /* --- Brand constants (theme-independent) --------------------------- */
+  --brand-green: #55DE85;       /* logo green — never changes           */
+  --brand-green-600: #2BB673;   /* deeper interactive green             */
+  --brand-green-700: #1F8A5B;   /* deepest, for text-on-light links     */
+  --brand-grey: #7E7B78;        /* warm grey from wordmark              */
+}
+
+/* ============================================================================
+   LIGHT THEME (default)
+   ============================================================================ */
+:root,
+[data-theme="light"] {
+  color-scheme: light;
+
+  /* Surfaces */
+  --background:        #F6F8F6;  /* app canvas — soft warm off-white     */
+  --surface:           #FFFFFF;  /* cards / sheets                       */
+  --surface-2:         #EFF2EF;  /* inset / subtle fill                  */
+  --surface-raised:    #FFFFFF;  /* elevated card (uses shadow)          */
+
+  /* Text */
+  --foreground:        #15201A;  /* primary text — warm near-black       */
+  --foreground-muted:  #5C635D;  /* secondary text (AA on bg)            */
+  --muted:             #828A83;  /* tertiary / placeholder               */
+
+  /* Lines */
+  --border:            #E1E6E1;  /* hairline dividers / input border     */
+  --border-strong:     #CBD2CC;  /* emphasized border / focus rest       */
+  --ring:              #2BB673;  /* focus ring                           */
+
+  /* Primary (brand) */
+  --primary:           #55DE85;  /* brand green                          */
+  --primary-hover:     #43CD75;  /* pressed/hover darken                 */
+  --primary-foreground:#06371D;  /* dark green text on green (9.3:1)     */
+  --primary-subtle:    #E4F8EC;  /* tinted fill / selected bg            */
+
+  /* Accent (deeper brand green for emphasis & links) */
+  --accent:            #1F8A5B;
+  --accent-foreground: #FFFFFF;
+  --accent-subtle:     #E0F2E9;
+
+  /* Semantic */
+  --success:           #1F9D57;  --success-foreground:#FFFFFF;  --success-subtle:#E2F4E9;
+  --warning:           #B5740F;  --warning-foreground:#FFFFFF;  --warning-subtle:#FAEEDB;
+  --destructive:       #C8403F;  --destructive-foreground:#FFFFFF; --destructive-subtle:#FBE6E5;
+  --info:              #2C6FD6;  --info-foreground:#FFFFFF;     --info-subtle:#E2ECFB;
+
+  /* Elevation (3 tiers) */
+  --elev-subtle:   0 1px 2px rgba(16,28,20,0.06);
+  --elev-raised:   0 2px 6px rgba(16,28,20,0.08), 0 1px 2px rgba(16,28,20,0.05);
+  --elev-floating: 0 16px 36px -10px rgba(16,28,20,0.20), 0 4px 12px rgba(16,28,20,0.08);
+
+  /* Image overlay (protection gradient over photos) */
+  --scrim: linear-gradient(180deg, rgba(8,16,11,0) 0%, rgba(8,16,11,0.55) 100%);
+}
+
+/* ============================================================================
+   DARK THEME
+   ============================================================================ */
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  --background:        #0E1411;  /* warm green-black                     */
+  --surface:           #161D19;  /* cards                                */
+  --surface-2:         #1F2722;  /* inset / subtle fill                  */
+  --surface-raised:    #1F2722;  /* elevated surface (lifts via tone)    */
+
+  --foreground:        #EAEFEA;
+  --foreground-muted:  #A6AEA7;
+  --muted:             #7C857E;
+
+  --border:            #29322C;
+  --border-strong:     #3A453E;
+  --ring:              #55DE85;
+
+  --primary:           #55DE85;  /* unchanged brand green                */
+  --primary-hover:     #6BE795;
+  --primary-foreground:#05291A;  /* dark text on green                   */
+  --primary-subtle:    #16271D;  /* tinted fill in dark                  */
+
+  --accent:            #5FE89A;
+  --accent-foreground: #05291A;
+  --accent-subtle:     #16271D;
+
+  --success:           #4FD98A;  --success-foreground:#05291A; --success-subtle:#15271C;
+  --warning:           #E2A64A;  --warning-foreground:#221704; --warning-subtle:#2A2113;
+  --destructive:       #F0706E;  --destructive-foreground:#2A0E0E; --destructive-subtle:#2C1817;
+  --info:              #6BA3F2;  --info-foreground:#0A1626;     --info-subtle:#16202E;
+
+  /* Dark shadows are subtle; elevation also reads via lighter surface tone */
+  --elev-subtle:   0 1px 2px rgba(0,0,0,0.40);
+  --elev-raised:   0 2px 8px rgba(0,0,0,0.45), 0 1px 2px rgba(0,0,0,0.40);
+  --elev-floating: 0 18px 40px -10px rgba(0,0,0,0.65), 0 6px 16px rgba(0,0,0,0.50);
+
+  --scrim: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.65) 100%);
+}
+
+/* ============================================================================
+   SEMANTIC TYPE ROLES — apply these classes/elements directly
+   ============================================================================ */
+.ds-display {
+  font-family: var(--font-display);
+  font-size: var(--text-48); line-height: var(--lh-48);
+  font-weight: var(--w-extrabold); letter-spacing: var(--track-tight);
+  color: var(--foreground);
+}
+h1, .ds-h1 {
+  font-family: var(--font-display);
+  font-size: var(--text-36); line-height: var(--lh-36);
+  font-weight: var(--w-bold); letter-spacing: var(--track-tight);
+  color: var(--foreground); margin: 0;
+}
+h2, .ds-h2 {
+  font-family: var(--font-display);
+  font-size: var(--text-30); line-height: var(--lh-30);
+  font-weight: var(--w-bold); letter-spacing: var(--track-snug);
+  color: var(--foreground); margin: 0;
+}
+h3, .ds-h3 {
+  font-family: var(--font-display);
+  font-size: var(--text-24); line-height: var(--lh-24);
+  font-weight: var(--w-semibold); letter-spacing: var(--track-snug);
+  color: var(--foreground); margin: 0;
+}
+h4, .ds-h4 {
+  font-family: var(--font-display);
+  font-size: var(--text-20); line-height: var(--lh-20);
+  font-weight: var(--w-semibold); letter-spacing: var(--track-snug);
+  color: var(--foreground); margin: 0;
+}
+.ds-lead {
+  font-family: var(--font-body);
+  font-size: var(--text-18); line-height: var(--lh-18);
+  font-weight: var(--w-regular); color: var(--foreground-muted);
+}
+p, .ds-body {
+  font-family: var(--font-body);
+  font-size: var(--text-16); line-height: var(--lh-16);
+  font-weight: var(--w-regular); color: var(--foreground);
+}
+.ds-small {
+  font-family: var(--font-body);
+  font-size: var(--text-14); line-height: var(--lh-14);
+  font-weight: var(--w-regular); color: var(--foreground-muted);
+}
+.ds-caption {
+  font-family: var(--font-body);
+  font-size: var(--text-12); line-height: var(--lh-12);
+  font-weight: var(--w-regular); color: var(--muted);
+}
+.ds-overline {
+  font-family: var(--font-body);
+  font-size: var(--text-12); line-height: var(--lh-12);
+  font-weight: var(--w-semibold); letter-spacing: var(--track-wide);
+  text-transform: uppercase; color: var(--foreground-muted);
+}
+.ds-mono {
+  font-family: var(--font-mono);
+  font-size: var(--text-16); line-height: var(--lh-16);
+  font-weight: var(--w-medium); letter-spacing: 0.04em;
+}

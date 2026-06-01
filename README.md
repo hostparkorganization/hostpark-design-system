@@ -1,47 +1,25 @@
-# hostpark-design-system
+# CODING AGENTS: READ THIS FIRST
 
-Design tokens + React Native component library shared by the Hostpark Mobile app
-(native iOS/Android + Expo Web build).
+This is a **handoff bundle** from Claude Design (claude.ai/design).
 
-> **Status:** scaffolding — the brief is in [DESIGN_BRIEF.md](./DESIGN_BRIEF.md).
-> Visual iteration happens on [claude.ai/design](https://claude.ai/design); locked
-> decisions land in this repo as code.
+A user mocked up designs in HTML/CSS/JS using an AI design tool, then exported this bundle so a coding agent can implement the designs for real.
 
-## Consumers
-- `hostpark-mobile` (native + Expo Web `/app` build)
+## What you should do — IMPORTANT
 
-Not consumed by `hostpark-web` (admin back-office — different system, follows
-Material Design 3).
+**Read the chat transcripts first.** There are 1 chat transcript(s) in `hostpark-design-system/chats/`. The transcripts show the full back-and-forth between the user and the design assistant — they tell you **what the user actually wants** and **where they landed** after iterating. Don't skip them. The final HTML files are the output, but the chat is where the intent lives.
 
-## Distribution
-This package is **not** published to a registry. Consumers reference it by git
-URL with a version tag:
+**Find the primary design file under `hostpark-design-system/project/` and read it top to bottom.** The chat transcripts will tell you which file the user was last iterating on. Then **follow its imports**: open every file it pulls in (shared components, CSS, scripts) so you understand how the pieces fit together before you start implementing.
 
-```json
-{
-  "dependencies": {
-    "@hostpark/design-system": "github:hostparkorganization/hostpark-design-system#v1.0.0"
-  }
-}
-```
+**If anything is ambiguous, ask the user to confirm before you start implementing.** It's much cheaper to clarify scope up front than to build the wrong thing.
 
-## Layout (planned)
-```
-hostpark-design-system/
-├── DESIGN_BRIEF.md          ← the prompt for claude.ai/design
-├── README.md                ← you are here
-├── assets/                  ← brand assets (logos, icon)
-├── src/
-│   ├── tokens/              ← colors, spacing, typography, radii, shadows, motion
-│   ├── components/          ← Button, Input, Card, Badge, etc.
-│   │                        ←   .web.tsx variants co-located per file
-│   └── theme/               ← ThemeContext + useTheme
-└── package.json
-```
+## About the design files
 
-## Workflow
-1. Refine the brief in `DESIGN_BRIEF.md`.
-2. Paste into claude.ai/design with the logo assets attached.
-3. Iterate visually until we have a token + component set we agree on.
-4. Translate decisions into code under `src/tokens/` and `src/components/`.
-5. Tag a version (e.g., `v0.1.0`), bump the dep in `hostpark-mobile`.
+The design medium is **HTML/CSS/JS** — these are prototypes, not production code. Your job is to **recreate them pixel-perfectly** in whatever technology makes sense for the target codebase (React, Vue, native, whatever fits). Match the visual output; don't copy the prototype's internal structure unless it happens to fit.
+
+**Don't render these files in a browser or take screenshots unless the user asks you to.** Everything you need — dimensions, colors, layout rules — is spelled out in the source. Read the HTML and CSS directly; a screenshot won't tell you anything they don't.
+
+## Bundle contents
+
+- `hostpark-design-system/README.md` — this file
+- `hostpark-design-system/chats/` — conversation transcripts (read these!)
+- `hostpark-design-system/project/` — the `Hostpark Design System` project files (HTML prototypes, assets, components)
