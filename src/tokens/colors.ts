@@ -52,6 +52,14 @@ export const lightColors = {
   info: '#2C6FD6',
   infoForeground: '#FFFFFF',
   infoSubtle: '#E2ECFB',
+
+  /**
+   * Driver role tint — same as info. Kept as a separate semantic token so
+   * UI can read `colors.driver` when referring to non-host residents (the
+   * "driver" role in older hostpark-mobile code).
+   */
+  driver: '#2C6FD6',
+  driverForeground: '#FFFFFF',
 } as const;
 
 export const darkColors: typeof lightColors = {
@@ -92,6 +100,9 @@ export const darkColors: typeof lightColors = {
   info: '#6BA3F2',
   infoForeground: '#0A1626',
   infoSubtle: '#16202E',
+
+  driver: '#6BA3F2',
+  driverForeground: '#0A1626',
 };
 
 export type ColorTokens = typeof lightColors;

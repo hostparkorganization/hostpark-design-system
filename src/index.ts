@@ -4,7 +4,7 @@
  * Public surface:
  *   - tokens         : colors, spacing, radii, typography, elevation, motion
  *   - theme          : ThemeProvider, useTheme, ThemeMode
- *   - components     : Text (more arrive in subsequent versions)
+ *   - components     : Text, Button, Card, Badge, Input, Header, ScreenWrapper
  *   - fonts          : require-map for expo-font.loadAsync
  */
 
@@ -42,7 +42,28 @@ export {
 } from './theme';
 
 // Components
-export { Text, type TextProps } from './components';
+export {
+  Text,
+  Button,
+  Card,
+  Badge,
+  Input,
+  Header,
+  HeaderIconButton,
+  ScreenWrapper,
+  type TextProps,
+  type ButtonProps,
+  type ButtonVariant,
+  type ButtonSize,
+  type CardProps,
+  type CardVariant,
+  type BadgeProps,
+  type BadgeVariant,
+  type InputProps,
+  type HeaderProps,
+  type HeaderIconButtonProps,
+  type ScreenWrapperProps,
+} from './components';
 
 // Fonts (consumer must load via expo-font)
 export { fonts } from './fonts';
