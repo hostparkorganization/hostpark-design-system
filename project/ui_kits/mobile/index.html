@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hostpark Mobile UI Kit — Round 1 preview</title>
+
+  <!-- Tokens (from the design system root) -->
+  <link rel="stylesheet" href="../../colors_and_type.css" />
+  <!-- Component styles -->
+  <link rel="stylesheet" href="./kit.css" />
+
+  <!-- React 18 UMD -->
+  <script crossorigin src="https://unpkg.com/react@18.3.1/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js"></script>
+
+  <!-- Babel standalone for in-browser JSX transform -->
+  <script src="https://unpkg.com/@babel/standalone@7.25.6/babel.min.js"></script>
+
+  <!-- Ionicons (matches the project's icon set) -->
+  <script type="module" src="https://cdn.jsdelivr.net/npm/ionicons@7.4.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://cdn.jsdelivr.net/npm/ionicons@7.4.0/dist/ionicons/ionicons.js"></script>
+
+  <style>
+    /* The studio toolbar in app.jsx assumes a backdrop; give the page some
+       visible background to confirm it loaded. */
+    html, body { margin: 0; padding: 0; }
+    /* Tell Ionicons the custom elements are OK in this doc */
+    body { font-family: var(--font-body, system-ui); }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+
+  <!-- Load order matters: components define primitives used by screens; screens
+       are used by app. All three transform together as Babel scripts. -->
+  <script type="text/babel" data-presets="react" src="./components.jsx"></script>
+  <script type="text/babel" data-presets="react" src="./screens.jsx"></script>
+  <script type="text/babel" data-presets="react" src="./app.jsx"></script>
+</body>
+</html>
