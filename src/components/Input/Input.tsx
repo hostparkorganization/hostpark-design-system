@@ -1,5 +1,6 @@
 import React, { forwardRef, useState } from 'react';
 import {
+  Platform,
   TextInput,
   View,
   type TextInputProps,
@@ -59,9 +60,16 @@ export const Input = forwardRef<TextInput, InputProps>(function Input(
   const { colors } = useTheme();
   const [focused, setFocused] = useState(false);
 
+  // On native, JS-driven focus border is the only signal we have (no CSS).
+  // On web, the consumer's global CSS rule paints a box-shadow ring on the
+  // wrapping View when an input descendant is focus-visible; doubling that
+  // up with a JS-driven border-color change produces a visible inner+outer
+  // ring stack, which reads as a styling bug. So on web we keep the border
+  // at its idle/error color regardless of focus and let CSS do the work.
+  const treatAsFocused = focused && Platform.OS !== 'web';
   const borderColor = error
     ? colors.destructive
-    : focused
+    : treatAsFocused
       ? colors.ring
       : colors.border;
 
