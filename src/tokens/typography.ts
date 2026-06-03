@@ -23,6 +23,20 @@ export const fontFamilies = {
   interMedium: 'Inter-Medium',
   interSemiBold: 'Inter-SemiBold',
   interBold: 'Inter-Bold',
+
+  // Migration aliases — match the legacy hostpark-mobile naming.
+  /** alias of `manropeBold` */
+  heading: 'Manrope-Bold',
+  /** alias of `manropeSemiBold` */
+  headingSemiBold: 'Manrope-SemiBold',
+  /** alias of `manropeMedium` */
+  headingMedium: 'Manrope-Medium',
+  /** alias of `manropeRegular` */
+  headingRegular: 'Manrope-Regular',
+  /** alias of `interRegular` */
+  body: 'Inter-Regular',
+  /** alias of `interMedium` */
+  bodyMedium: 'Inter-Medium',
 } as const;
 
 export const fontSizes = {
@@ -167,6 +181,14 @@ export const typography = {
     fontSize: fontSizes.base,
     lineHeight: lineHeights.base,
     letterSpacing: 0.6,
+  } satisfies TextStyle,
+
+  // Migration alias — legacy hostpark-mobile used `bodyXs` for 12px body text.
+  /** alias of `caption` */
+  bodyXs: {
+    fontFamily: fontFamilies.interRegular,
+    fontSize: fontSizes.xs,
+    lineHeight: lineHeights.xs,
   } satisfies TextStyle,
 } as const;
 

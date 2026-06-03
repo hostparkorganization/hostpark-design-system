@@ -60,6 +60,25 @@ export const lightColors = {
    */
   driver: '#2C6FD6',
   driverForeground: '#FFFFFF',
+
+  // ---------------------------------------------------------------------
+  // Migration aliases — match the legacy hostpark-mobile naming so the
+  // mobile app can swap import paths without rewriting every `colors.X`
+  // reference. To be removed in a follow-up cleanup once references have
+  // moved to the canonical names.
+  // ---------------------------------------------------------------------
+  /** alias of `surface` */
+  card: '#FFFFFF',
+  /** alias of `foreground` */
+  cardForeground: '#15201A',
+  /** alias of `surface2` — used by old secondary-button + inset-bg sites */
+  secondary: '#EFF2EF',
+  /** alias of `foreground` */
+  secondaryForeground: '#15201A',
+  /** alias of `foregroundMuted` */
+  mutedForeground: '#5C635D',
+  /** alias of `surface` — used by old TextInput backgrounds */
+  input: '#FFFFFF',
 } as const;
 
 export const darkColors: typeof lightColors = {
@@ -103,6 +122,14 @@ export const darkColors: typeof lightColors = {
 
   driver: '#6BA3F2',
   driverForeground: '#0A1626',
+
+  // Migration aliases — see lightColors block.
+  card: '#161D19',
+  cardForeground: '#EAEFEA',
+  secondary: '#1F2722',
+  secondaryForeground: '#EAEFEA',
+  mutedForeground: '#A6AEA7',
+  input: '#161D19',
 };
 
 export type ColorTokens = typeof lightColors;
