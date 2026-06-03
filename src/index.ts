@@ -4,7 +4,7 @@
  * Public surface:
  *   - tokens         : colors, spacing, radii, typography, elevation, motion
  *   - theme          : ThemeProvider, useTheme, ThemeMode
- *   - components     : Text, Button, Card, Badge, Input, Header, ScreenWrapper
+ *   - components     : primitives + actions + containers + layout + overlays + states
  *   - fonts          : require-map for expo-font.loadAsync
  */
 
@@ -43,26 +43,57 @@ export {
 
 // Components
 export {
+  // Primitives
   Text,
+  Avatar,
+  Skeleton,
+  // Action / input
   Button,
+  Input,
+  PhoneInput,
+  DocumentInput,
+  // Containers / display
   Card,
   Badge,
-  Input,
+  ListItem,
+  ListGroup,
+  // Layout
   Header,
   HeaderIconButton,
   ScreenWrapper,
+  // Overlays
+  BottomSheet,
+  Modal,
+  // Status / state templates
+  EmptyState,
+  LoadingState,
+  ErrorState,
+  // Types
   type TextProps,
+  type AvatarProps,
+  type SkeletonProps,
   type ButtonProps,
   type ButtonVariant,
   type ButtonSize,
+  type InputProps,
+  type PhoneInputProps,
+  type DocumentInputProps,
+  type DocumentInputFile,
   type CardProps,
   type CardVariant,
   type BadgeProps,
   type BadgeVariant,
-  type InputProps,
+  type ListItemProps,
+  type ListGroupProps,
   type HeaderProps,
   type HeaderIconButtonProps,
   type ScreenWrapperProps,
+  type BottomSheetProps,
+  type BottomSheetHeaderProps,
+  type ModalProps,
+  type EmptyStateProps,
+  type LoadingStateProps,
+  type ErrorStateProps,
 } from './components';
 
 // Fonts (consumer must load via expo-font)
