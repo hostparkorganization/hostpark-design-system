@@ -1,6 +1,6 @@
 {
   "name": "@hostpark/design-system",
-  "version": "0.1.0-dev",
+  "version": "0.3.0-dev",
   "private": true,
   "description": "Design tokens + React Native component library for the Hostpark mobile app (native + Expo Web).",
   "main": "./src/index.ts",
