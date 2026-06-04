@@ -17,8 +17,20 @@ export interface HeaderIconButtonProps extends Omit<PressableProps, 'children' |
 }
 
 /**
- * Circular outlined icon button used in headers and toolbars. The badge dot
- * appears at top-right when `hasBadge` is true.
+ * Circular icon button used in headers and toolbars. Transparent by default
+ * — the host page's MD3 state-layer CSS provides a subtle ::after overlay
+ * on hover/press, and the keyboard-focus ring comes from the same global
+ * stylesheet. This keeps the header visually clean and lets the icon read
+ * as the affordance rather than the button frame.
+ *
+ * Consumers that need a visible chip (e.g. a floating back button over a
+ * hero photo where the surface contrast is gone) can pass `backgroundColor`
+ * and `borderColor` through the `style` prop.
+ *
+ * The badge dot (when `hasBadge`) sits at the top-right and uses
+ * `colors.background` for its halo so it reads cleanly against the page
+ * background (the host element is transparent now, so a `colors.surface`
+ * halo would no longer ring against anything visible).
  */
 export function HeaderIconButton({
   icon,
@@ -34,9 +46,6 @@ export function HeaderIconButton({
     width: size,
     height: size,
     borderRadius: radii.full,
-    backgroundColor: colors.surface,
-    borderWidth: 1,
-    borderColor: colors.border,
     alignItems: 'center',
     justifyContent: 'center',
   };
@@ -60,7 +69,7 @@ export function HeaderIconButton({
             borderRadius: 4,
             backgroundColor: colors.destructive,
             borderWidth: 2,
-            borderColor: colors.surface,
+            borderColor: colors.background,
           }}
         />
       ) : null}
