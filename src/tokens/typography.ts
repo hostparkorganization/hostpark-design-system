@@ -190,6 +190,14 @@ export const typography = {
     fontSize: fontSizes.xs,
     lineHeight: lineHeights.xs,
   } satisfies TextStyle,
+
+  // Migration alias — legacy hostpark-mobile used `bodySm` for 14px body text.
+  /** alias of `small` */
+  bodySm: {
+    fontFamily: fontFamilies.interRegular,
+    fontSize: fontSizes.sm,
+    lineHeight: lineHeights.sm,
+  } satisfies TextStyle,
 } as const;
 
 export type TypographyRole = keyof typeof typography;
