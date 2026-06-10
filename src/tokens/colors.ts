@@ -81,7 +81,7 @@ export const lightColors = {
   input: '#FFFFFF',
 } as const;
 
-export const darkColors: typeof lightColors = {
+export const darkColors: Record<keyof typeof lightColors, string> = {
   background: '#0E1411',
   surface: '#161D19',
   surface2: '#1F2722',
@@ -132,4 +132,7 @@ export const darkColors: typeof lightColors = {
   input: '#161D19',
 };
 
-export type ColorTokens = typeof lightColors;
+// Keys come from lightColors; values are plain strings so the light/dark
+// palettes (which obviously differ) are both valid ColorTokens. Using
+// `typeof lightColors` here would pin every value to a single hex literal.
+export type ColorTokens = Record<keyof typeof lightColors, string>;

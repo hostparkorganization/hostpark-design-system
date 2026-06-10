@@ -7,7 +7,10 @@ import type { ColorTokens } from '../../tokens/colors';
 
 type ColorToken = keyof ColorTokens;
 
-export interface TextProps extends RNTextProps {
+// Omit RN's own `role` (an ARIA accessibility role) — this component
+// repurposes `role` for the semantic typography role. Consumers needing an
+// a11y role use `accessibilityRole`, which RNTextProps still provides.
+export interface TextProps extends Omit<RNTextProps, 'role'> {
   /** Semantic type role (h1-h4, body, small, caption, overline, etc.). Defaults to "body". */
   role?: TypographyRole;
   /** Theme color token to apply. Defaults to "foreground". */
