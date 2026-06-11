@@ -1,0 +1,22 @@
+name: CI
+
+# The package ships raw src (no build step), so the typecheck IS the gate:
+# consumers transpile whatever is on the tag/branch they pin. A type error
+# here surfaces in every consumer's editor and tsc — catch it at the source.
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  typecheck:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - run: npm run typecheck
