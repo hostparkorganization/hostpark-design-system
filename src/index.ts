@@ -54,6 +54,7 @@ export {
   DocumentInput,
   // Containers / display
   Card,
+  CardRail,
   Badge,
   ListItem,
   ListGroup,
@@ -81,6 +82,8 @@ export {
   type DocumentInputFile,
   type CardProps,
   type CardVariant,
+  type CardRailProps,
+  type CardRailItem,
   type BadgeProps,
   type BadgeVariant,
   type ListItemProps,

@@ -20,6 +20,7 @@ export {
 
 // Containers / display
 export { Card, type CardProps, type CardVariant } from './Card';
+export { CardRail, type CardRailProps, type CardRailItem } from './CardRail';
 export { Badge, type BadgeProps, type BadgeVariant } from './Badge';
 export {
   ListItem,
