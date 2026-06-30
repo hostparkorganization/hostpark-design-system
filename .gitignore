@@ -3,6 +3,13 @@ dist/
 build/
 .next/
 *.log
+
+# Planning / generation artifacts — kept local-only (archived outside the repo), never pushed
+DESIGN_BRIEF.md
+*-brief.md
+*-study.md
+PROMPTS/
+chats/
 .DS_Store
 Thumbs.db
 .env
