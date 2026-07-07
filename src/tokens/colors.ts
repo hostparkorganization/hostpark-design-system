@@ -45,6 +45,13 @@ export const lightColors = {
   warningForeground: '#FFFFFF',
   warningSubtle: '#FAEEDB',
 
+  /** Survey (Enquete) accent — the amber "sticky note" on the Mural. `paper`/`line` are the note's
+   *  fill + border; `subtle` is a lighter wash for chips/section markers. */
+  survey: '#9A6A12',
+  surveySubtle: '#FBEFD0',
+  surveyPaper: '#FDF4D8',
+  surveyLine: '#EAD59B',
+
   destructive: '#C8403F',
   destructiveForeground: '#FFFFFF',
   destructiveSubtle: '#FBE6E5',
@@ -111,6 +118,12 @@ export const darkColors: Record<keyof typeof lightColors, string> = {
   warning: '#E2A64A',
   warningForeground: '#221704',
   warningSubtle: '#2A2113',
+
+  /** Survey (Enquete) accent — dark-theme amber sticky note. See the light set for semantics. */
+  survey: '#E7C270',
+  surveySubtle: '#2A2413',
+  surveyPaper: '#2D2712',
+  surveyLine: '#4A4022',
 
   destructive: '#F0706E',
   destructiveForeground: '#2A0E0E',
